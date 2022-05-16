@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 
+const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+// const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -16,8 +17,7 @@ const controller = {
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-		let product = products.find(product => product.id === parseInt(req.params.id));
+		let product = products.find(product => product.id == req.params.id)
 		res.render('detail', {product : product})
 	},
 
@@ -28,9 +28,6 @@ const controller = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
-
-		// PRIMERO queremos leer qué cosas ya había: si ya tenía usuarios registrados, no
-		// queremos pisar el archivo
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 		//para sacar el numero de id
@@ -38,7 +35,6 @@ const controller = {
 		let newId = products[last].id +1;
 
 		console.log(req.file)
-
 		// Do the magic
 		let newProduct = {
 			id : newId,
@@ -50,14 +46,18 @@ const controller = {
 	//		image : req.file.filename
 		}
 
+		// PRIMERO queremos leer qué cosas ya había: si ya tenía usuarios registrados, no
+		// queremos pisar el archivo
+		let productsFile = fs.readFileSync(productsFilePath, {encoding: 'utf-8'})
+
 
 		let product;
 		//definimos la variable antes del if así la toma globalmente
 
-		if (products == ''){
+		if (productsFile == ''){
 			product = [];
 		}else{
-			product = JSON.parse(products);
+			product = JSON.parse(productsFile);
 		}
 		// Para leer un archivo .json usamos parse para descomprimir la información.
 		// De este modo vamos a tener la variable productos como un array, con todos
@@ -79,15 +79,10 @@ const controller = {
 
 	// Update - Form to edit
 	edit: (req, res) => {
-		//leer el json de archivo de productos, se guarda en variable products
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 		let product = products.find(item => item.id == req.params.id)
-
 		res.render('product-edit-form', {productToEdit : product})
 	},
-
-
 	// Update - Method to update
 	update: (req, res) => {
 
@@ -121,9 +116,8 @@ const controller = {
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
 		let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
+		// Do the magic
 		//let productToDelete = products.find(item => item.id === parseInt(req.params.id))
 		//acá guarda en la variable sólo el producto que encontró como coincidencia
 
@@ -134,7 +128,7 @@ const controller = {
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(newListProducts,null,"\t"));
 
-		res.redirect('/products');
+		res.redirect('/products/');
 	}
 };
 

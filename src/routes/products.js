@@ -27,7 +27,7 @@ router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 
-router.post('/', upload.single('prod-img'), productsController.store); 
+router.post('/', upload.any('prod-img'), productsController.store); 
 
 
 /*** GET ONE PRODUCT ***/ 
@@ -35,7 +35,7 @@ router.get('/detail/:id', productsController.detail);
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit); 
-router.put('/edit', upload.single('prod-img'), productsController.update); 
+router.put('/edit', upload.any('prod-img'), productsController.update); 
 
 
 /*** DELETE ONE PRODUCT***/ 
