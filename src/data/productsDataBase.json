@@ -1,12 +1,12 @@
 [
 	{
-		"id": 2,
+		"id": "2",
 		"name": "Macbook Pro 2022",
-		"price": 500,
-		"discount": 3,
-		"category": "in-sale",
-		"description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
-		"image": "img-macbook-pro-2019.jpg"
+		"price": "180000",
+		"discount": "5",
+		"category": "",
+		"description": "Macbook Pro 2019 Mpxq2ll/n Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
+		"image": "1652926619049-.jpg"
 	},
 	{
 		"id": 3,
@@ -135,19 +135,39 @@
 		"image": "img-parlante-sony.jpg"
 	},
 	{
-		"id": 17,
-		"name": "Mouse gamer razer",
-		"price": "sdsadas",
-		"discount": "sdasa",
+		"id": "17",
+		"name": "Coso nuevo prueba edit",
+		"price": "187293872",
+		"discount": "12",
 		"category": "in-sale",
-		"description": "ddadad"
+		"description": "lsjdlasjldjslajdas",
+		"image": "1652927096245bela.jpg.jpg"
 	},
 	{
 		"id": 18,
-		"name": "prueba imagen",
-		"price": "100000",
-		"discount": "15",
+		"name": "Mouse gamer razer",
+		"price": "321321",
+		"discount": "23",
 		"category": "visited",
-		"description": "probando la carga de img"
+		"description": "wasdsdsdasdas",
+		"image": "1652926564170-.jpg"
+	},
+	{
+		"id": "19",
+		"name": "Prueba Sin IMG",
+		"price": "43324324",
+		"discount": "15",
+		"category": "in-sale",
+		"description": "sdsadasd",
+		"image": "default-image.png"
+	},
+	{
+		"id": 20,
+		"name": "Con IMG",
+		"price": "231312",
+		"discount": "23",
+		"category": "in-sale",
+		"description": "sfdgsdgsdfs",
+		"image": "1652927078850alien.png.png"
 	}
 ]
